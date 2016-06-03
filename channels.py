@@ -30,6 +30,10 @@ body = buffer.getvalue()
 soup = BeautifulSoup(body)
 # channel values
 dropdown = soup.find(id='channel_selector')
+
+if dropdown is None:
+  quit('login failed')
+
 channels = dropdown.findAll('option')
 #month values
 month_dropdown = soup.find(id='month')
